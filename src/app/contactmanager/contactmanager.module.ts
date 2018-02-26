@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import {UserService} from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+
 const routes: Routes = [
   {path:'',component:ContactmanagerAppComponent,children:
    [
@@ -27,8 +30,10 @@ const routes: Routes = [
     FormsModule,
     MaterialModule,
     FlexLayoutModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ContactmanagerAppComponent, ToolbarComponent, MaincontentComponent, SidenavComponent]
+  declarations: [ContactmanagerAppComponent, ToolbarComponent, MaincontentComponent, SidenavComponent],
+  providers: [UserService],
 })
 export class ContactmanagerModule { }
